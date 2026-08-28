@@ -77,33 +77,19 @@
       "version": "1.24.0",
       "date": "2026-08-27",
       "tags": [
-        "event",
-        "content",
-        "fix"
+        "event"
       ],
       "availableLangs": [
         "ko",
-        "en",
-        "ja",
-        "zh-Hans",
-        "zh-Hant",
-        "de"
+        "en"
       ],
       "title": {
         "ko": "해변 스티커 컬렉션",
-        "en": "Seashore Sticker Collection",
-        "ja": "海辺ステッカーコレクション",
-        "zh-Hans": "海滩贴纸收藏",
-        "zh-Hant": "海灘貼紙收藏",
-        "de": "Strand-Sticker-Kollektion"
+        "en": "Seashore Sticker Collection"
       },
       "summary": {
-        "ko": "여름이 가기 전, '해변' 스티커를 모아봐요! 신규 스테이지 60종과 여름 한정 부스터가 함께 찾아옵니다.",
-        "en": "Collect Seashore stickers before summer ends! 60 new stages and a limited summer booster arrive together.",
-        "ja": "夏が終わる前に「海辺」ステッカーを集めよう！新ステージ60種と夏限定ブースターが登場します。",
-        "zh-Hans": "趁夏天还未结束，收集“海滩”贴纸吧！60个全新关卡与夏日限定助力道具同步登场。",
-        "zh-Hant": "抓住夏天的尾巴，一起收集“海灘”貼紙吧！60 個全新關卡與夏日限定助力道具同步登場。",
-        "de": "Sammle Strand-Sticker, bevor der Sommer endet! 60 neue Level und ein limitierter Sommer-Booster warten auf dich."
+        "ko": "여름이 가기 전, '해변' 스티커를 모아봐요!",
+        "en": "Collect Seashore stickers!"
       }
     },
     {
