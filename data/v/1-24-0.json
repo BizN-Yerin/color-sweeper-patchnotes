@@ -1,206 +1,30 @@
 {
   "version": "1.24.0",
   "date": "2026-08-27",
-  "period": { "start": "2026-08-27 04:00", "end": "2026-09-10 03:59", "tz": "UTC+9" },
+  "period": {
+    "start": "Thu Aug 27 2026 04:00:00 GMT+0900 (한국 표준시)",
+    "end": "Thu Sep 10 2026 03:59:00 GMT+0900 (한국 표준시)",
+    "tz": "UTC+9"
+  },
   "hero": {
-    "common": "images/1-24-0/hero.svg",
-    "ko": "images/1-24-0/hero_ko.svg",
-    "ja": "images/1-24-0/hero_ja.svg"
+    "common": "images/1-24-0/hero.png"
   },
   "sections": [
     {
-      "key": "evt_seashore",
+      "key": "evt",
       "tag": "event",
       "title": {
         "ko": "해변 스티커 컬렉션",
-        "en": "Seashore Sticker Collection",
-        "ja": "海辺ステッカーコレクション",
-        "zh-Hans": "海滩贴纸收藏",
-        "zh-Hant": "海灘貼紙收藏",
-        "de": "Strand-Sticker-Kollektion"
+        "en": "Seashore Sticker Collection"
       },
       "blocks": [
         {
           "type": "text",
-          "key": "evt_seashore.intro",
+          "key": "evt.intro",
           "value": {
-            "ko": "시원한 파도와 반짝이는 여름의 추억이 새로운 스티커로 찾아왔어요! 컬러스위퍼와 함께 여름의 마지막 해변 여행을 떠나볼까요? 퍼즐을 플레이하고 다양한 '해변' 스티커를 모아보세요. 모든 스티커를 모으면 나만의 특별한 여름 풍경이 완성된답니다!",
-            "en": "Cool waves and sparkling summer memories are back as brand-new stickers! How about one last summer trip to the beach with ColorSweeper? Play puzzles and collect neat Seashore stickers. Collect them all to complete your very own special summer scene!",
-            "ja": "涼しい波ときらめく夏の思い出が、新しいステッカーになって登場！ カラースイーパーと一緒に、今年最後のビーチ旅行に出かけませんか？ パズルを遊んで「海辺」ステッカーを集めよう。すべて集めると、あなただけの特別な夏の風景が完成します！",
-            "zh-Hans": "清凉海浪与闪耀的夏日回忆化作全新贴纸闪亮登场！和《Color Sweeper》一起踏上夏日最后的海滩之旅吧？游玩谜题，收集各种“海滩”贴纸。集齐全部贴纸后，就能完成属于自己的特别夏日风景！",
-            "zh-Hant": "沁涼海浪與閃耀的夏日回憶，化作全新貼紙登場囉！和《彩地雷》一起踏上今夏最後一趟海灘之旅吧？解開謎題並收集各種“海灘”貼紙，集齊所有貼紙後，就能完成專屬於你的夢幻海灘！",
-            "de": "Wellen und Sommermomente warten als neue Sticker auf dich! Begib dich mit ColorSweeper auf einen letzten Strandausflug. Löse Puzzle und sammle Strand-Sticker. Sammle sie alle und gestalte deine eigene Sommerlandschaft!"
+            "ko": "시원한 파도와 반짝이는 여름의 추억이 새로운 스티커로 찾아왔어요! 퍼즐을 플레이하고 '해변' 스티커를 모아보세요.",
+            "en": "Summer memories are back as stickers!"
           }
-        },
-        {
-          "type": "image",
-          "key": "evt_seashore.img_book",
-          "src": { "common": "images/1-24-0/sticker_book.svg" },
-          "caption": {
-            "ko": "스티커북은 메인 화면 좌측 하단에서 확인할 수 있어요.",
-            "en": "Open the sticker book from the bottom-left of the main screen.",
-            "ja": "ステッカーブックはメイン画面左下から確認できます。",
-            "zh-Hans": "可在主界面左下角打开贴纸册。",
-            "zh-Hant": "可在主畫面左下角開啟貼紙冊。",
-            "de": "Das Stickerbuch findest du unten links im Hauptmenü."
-          }
-        },
-        {
-          "type": "table",
-          "key": "evt_seashore.rewards",
-          "head": {
-            "ko": ["수집 단계", "보상"],
-            "en": ["Collection tier", "Reward"],
-            "ja": ["収集段階", "報酬"],
-            "zh-Hans": ["收集阶段", "奖励"],
-            "zh-Hant": ["收集階段", "獎勵"],
-            "de": ["Sammelstufe", "Belohnung"]
-          },
-          "rows": [
-            [
-              { "ko": "스티커 10종", "en": "10 stickers", "ja": "ステッカー10種", "zh-Hans": "10 种贴纸", "zh-Hant": "10 種貼紙", "de": "10 Sticker" },
-              { "ko": "코인 3,000", "en": "3,000 Coins", "ja": "コイン3,000", "zh-Hans": "金币 3,000", "zh-Hant": "金幣 3,000", "de": "3.000 Münzen" }
-            ],
-            [
-              { "ko": "스티커 25종", "en": "25 stickers", "ja": "ステッカー25種", "zh-Hans": "25 种贴纸", "zh-Hant": "25 種貼紙", "de": "25 Sticker" },
-              { "ko": "여름 부스터 팩", "en": "Summer Booster Pack", "ja": "サマーブースターパック", "zh-Hans": "夏日助力礼包", "zh-Hant": "夏日助力禮包", "de": "Sommer-Booster-Paket" }
-            ],
-            [
-              { "ko": "스티커 40종 (전체)", "en": "All 40 stickers", "ja": "ステッカー40種（全て）", "zh-Hans": "全部 40 种贴纸", "zh-Hant": "全部 40 種貼紙", "de": "Alle 40 Sticker" },
-              { "ko": "한정 프로필 프레임 '파도'", "en": "Limited profile frame: Tide", "ja": "限定プロフィールフレーム「波」", "zh-Hans": "限定头像框“浪潮”", "zh-Hant": "限定頭像框「浪潮」", "de": "Limitierter Profilrahmen: Gezeiten" }
-            ]
-          ]
-        },
-        {
-          "type": "notice",
-          "key": "evt_seashore.notice",
-          "value": {
-            "ko": "이벤트 종료 후 미수령 보상은 자동으로 우편함에 지급되며, 우편은 30일간 보관됩니다.",
-            "en": "Unclaimed rewards are sent to your mailbox after the event ends and are kept for 30 days.",
-            "ja": "イベント終了後、未受け取りの報酬はメールボックスへ自動送付され、30日間保管されます。",
-            "zh-Hans": "活动结束后，未领取的奖励将自动发送至邮箱，保留 30 天。",
-            "zh-Hant": "活動結束後，未領取的獎勵將自動寄送至信箱，保留 30 天。",
-            "de": "Nicht abgeholte Belohnungen landen nach Eventende im Postfach und bleiben 30 Tage erhalten."
-          }
-        }
-      ]
-    },
-    {
-      "key": "new_content",
-      "tag": "content",
-      "title": {
-        "ko": "신규 콘텐츠",
-        "en": "New Content",
-        "ja": "新コンテンツ",
-        "zh-Hans": "全新内容",
-        "zh-Hant": "全新內容",
-        "de": "Neue Inhalte"
-      },
-      "blocks": [
-        {
-          "type": "list",
-          "key": "new_content.items",
-          "items": [
-            {
-              "key": "new_content.items.1",
-              "value": {
-                "ko": "스테이지 2,401 ~ 2,460 (총 60종) 이 추가되었습니다.",
-                "en": "Stages 2,401–2,460 (60 in total) have been added.",
-                "ja": "ステージ2,401〜2,460（全60種）が追加されました。",
-                "zh-Hans": "新增关卡 2,401～2,460（共 60 关）。",
-                "zh-Hant": "新增關卡 2,401～2,460（共 60 關）。",
-                "de": "Level 2.401–2.460 (insgesamt 60) wurden hinzugefügt."
-              }
-            },
-            {
-              "key": "new_content.items.2",
-              "value": {
-                "ko": "여름 한정 부스터 '파도타기'가 상점에 등장합니다. 같은 색 타일을 가로 한 줄 전체로 확산시켜요.",
-                "en": "The limited-time 'Wave Rider' booster arrives in the shop. It spreads one color across an entire row.",
-                "ja": "夏限定ブースター「ウェーブライド」が商店に登場。同じ色のタイルを横一列に広げます。",
-                "zh-Hans": "夏日限定助力道具“逐浪”上架商店，可将同色方块扩散至整行。",
-                "zh-Hant": "夏日限定助力道具「逐浪」上架商店，可將同色方塊擴散至整列。",
-                "de": "Der limitierte Booster „Wellenreiter“ ist im Shop. Er verteilt eine Farbe über eine ganze Reihe."
-              }
-            },
-            {
-              "key": "new_content.items.3",
-              "value": {
-                "ko": "일일 챌린지에 '무지개 러시' 모드가 주 2회(수·토) 열립니다.",
-                "en": "Daily Challenge adds Rainbow Rush mode, open twice a week (Wed & Sat).",
-                "ja": "デイリーチャレンジに「レインボーラッシュ」モードが週2回（水・土）登場します。",
-                "zh-Hans": "每日挑战新增“彩虹冲刺”模式，每周三、周六开放。",
-                "zh-Hant": "每日挑戰新增「彩虹衝刺」模式，每週三、週六開放。",
-                "de": "Die Tagesherausforderung erhält den Regenbogen-Rausch-Modus, zweimal pro Woche (Mi & Sa)."
-              }
-            }
-          ]
-        },
-        {
-          "type": "image",
-          "key": "new_content.img_booster",
-          "src": { "common": "images/1-24-0/booster.svg" },
-          "caption": {
-            "ko": "'파도타기' 부스터 사용 예시",
-            "en": "Wave Rider booster in action",
-            "ja": "「ウェーブライド」ブースター使用例",
-            "zh-Hans": "“逐浪”助力道具使用示例",
-            "zh-Hant": "「逐浪」助力道具使用範例",
-            "de": "Der Wellenreiter-Booster im Einsatz"
-          }
-        }
-      ]
-    },
-    {
-      "key": "fixes",
-      "tag": "fix",
-      "title": {
-        "ko": "개선 및 수정",
-        "en": "Improvements & Fixes",
-        "ja": "改善と修正",
-        "zh-Hans": "优化与修复",
-        "zh-Hant": "優化與修復",
-        "de": "Verbesserungen & Fehlerbehebungen"
-      },
-      "blocks": [
-        {
-          "type": "list",
-          "key": "fixes.items",
-          "items": [
-            {
-              "key": "fixes.items.1",
-              "value": {
-                "ko": "일부 기기에서 스테이지 로딩이 지연되던 현상을 개선했습니다.",
-                "en": "Fixed slow stage loading on some devices.",
-                "ja": "一部端末でステージ読み込みが遅くなる現象を改善しました。",
-                "zh-Hans": "修复部分设备关卡加载缓慢的问题。",
-                "zh-Hant": "修正部分裝置關卡載入緩慢的問題。",
-                "de": "Langsames Laden von Leveln auf manchen Geräten behoben."
-              }
-            },
-            {
-              "key": "fixes.items.2",
-              "value": {
-                "ko": "연구소 업그레이드 완료 알림이 중복 표시되던 문제를 수정했습니다.",
-                "en": "Fixed duplicate notifications for completed Lab upgrades.",
-                "ja": "ラボのアップグレード完了通知が重複して表示される問題を修正しました。",
-                "zh-Hans": "修复研究所升级完成通知重复显示的问题。",
-                "zh-Hant": "修正研究所升級完成通知重複顯示的問題。",
-                "de": "Doppelte Benachrichtigungen für abgeschlossene Labor-Upgrades behoben."
-              }
-            },
-            {
-              "key": "fixes.items.3",
-              "value": {
-                "ko": "1대1 대전 종료 화면에서 랭크 점수가 잘못 표기되던 오류를 수정했습니다.",
-                "en": "Fixed incorrect rank points shown on the 1v1 result screen.",
-                "ja": "1vs1バトルの結果画面でランクポイントが誤って表示される不具合を修正しました。",
-                "zh-Hans": "修复 1v1 对战结算界面段位分显示错误的问题。",
-                "zh-Hant": "修正 1v1 對戰結算畫面段位分顯示錯誤的問題。",
-                "de": "Falsche Ranglistenpunkte im 1-gegen-1-Ergebnisbildschirm korrigiert."
-              }
-            }
-          ]
         }
       ]
     }
