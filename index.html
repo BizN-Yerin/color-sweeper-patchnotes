@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Color Sweeper Updates</title>
+<meta name="description" content="Color Sweeper patch notes — every update, in twelve languages.">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzEyMTAxQSIvPjxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHJ4PSIyIiBmaWxsPSIjRTQ0NjdDIi8+PHJlY3QgeD0iMTgiIHk9IjYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHJ4PSIyIiBmaWxsPSIjRjBBMDIwIi8+PHJlY3QgeD0iNiIgeT0iMTgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHJ4PSIyIiBmaWxsPSIjMkU5RThGIi8+PHJlY3QgeD0iMTgiIHk9IjE4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4IiByeD0iMiIgZmlsbD0iIzdDNkJGRiIvPjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#F8F6FA; --surface:#FFFFFF; --surface-2:#F1EEF7;
+  --ink:#1A1726; --ink-2:#4A4460; --muted:#736C8C; --line:#E3DEEE; --line-soft:#EDE9F4;
+  --accent:#5B3FD9; --accent-ink:#FFFFFF; --accent-soft:#EDE8FF;
+  --shadow:0 1px 2px rgba(26,23,38,.05), 0 8px 24px -12px rgba(26,23,38,.18);
+  --t-event:#D93A70; --t-content:#C07408; --t-balance:#1E7F72; --t-fix:#6B6584; --t-system:#5B3FD9;
+  --font-display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --font-body:"Noto Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --rail:290px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#100E18; --surface:#191626; --surface-2:#201C31;
+    --ink:#F0EDF8; --ink-2:#CCC6E0; --muted:#9992B4; --line:#2C2740; --line-soft:#241F35;
+    --accent:#A78BFF; --accent-ink:#171130; --accent-soft:#241C42;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+    --t-event:#FF7FAA; --t-content:#F5B44A; --t-balance:#54C9B6; --t-fix:#A29BC0; --t-system:#A78BFF;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#100E18; --surface:#191626; --surface-2:#201C31;
+  --ink:#F0EDF8; --ink-2:#CCC6E0; --muted:#9992B4; --line:#2C2740; --line-soft:#241F35;
+  --accent:#A78BFF; --accent-ink:#171130; --accent-soft:#241C42;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  --t-event:#FF7FAA; --t-content:#F5B44A; --t-balance:#54C9B6; --t-fix:#A29BC0; --t-system:#A78BFF;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--font-body); font-size:16px; line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:40;
+  display:flex; align-items:center; gap:14px;
+  padding:12px 20px; background:color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter:blur(14px); border-bottom:1px solid var(--line-soft);
+}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; margin-right:auto; min-width:0}
+.brand-tiles{display:flex; gap:2px; flex:none}
+.brand-tiles i{width:7px; height:18px; border-radius:2px; display:block}
+.brand-name{font-family:var(--font-display); font-weight:800; font-size:1.02rem; letter-spacing:-.015em; white-space:nowrap}
+.brand-sub{font-family:var(--font-mono); font-size:.7rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase}
+@media(max-width:520px){.brand-sub{display:none}}
+
+.ctl{
+  appearance:none; font:inherit; font-size:.85rem; color:var(--ink);
+  background:var(--surface); border:1px solid var(--line); border-radius:9px;
+  padding:7px 30px 7px 12px; cursor:pointer; line-height:1.4;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 15px) 52%, calc(100% - 10px) 52%;
+  background-size:5px 5px, 5px 5px; background-repeat:no-repeat;
+}
+.iconbtn{
+  appearance:none; font:inherit; display:grid; place-items:center; width:34px; height:34px; flex:none;
+  background:var(--surface); border:1px solid var(--line); border-radius:9px; color:var(--ink-2); cursor:pointer;
+}
+.iconbtn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.railbtn{display:none}
+@media(max-width:900px){.railbtn{display:grid}}
+
+/* ---------- shell ---------- */
+.shell{display:grid; grid-template-columns:var(--rail) minmax(0,1fr); gap:0; max-width:1180px; margin:0 auto}
+@media(max-width:900px){.shell{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- rail (archive) ---------- */
+.rail{border-right:1px solid var(--line-soft); padding:26px 18px 60px}
+.rail h2{
+  font-family:var(--font-mono); font-size:.68rem; font-weight:600; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 14px 8px
+}
+.rail ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px}
+.vlink{
+  display:block; width:100%; text-align:start; font:inherit; cursor:pointer;
+  background:none; border:0; border-radius:11px; padding:11px 12px; color:inherit;
+  transition:background .14s ease;
+}
+.vlink:hover{background:var(--surface-2)}
+.vlink[aria-current="true"]{background:var(--surface); box-shadow:var(--shadow)}
+.vlink-top{display:flex; align-items:center; gap:8px; margin-bottom:3px}
+.vnum{font-family:var(--font-mono); font-size:.8rem; font-weight:600; letter-spacing:-.01em}
+.vdate{font-family:var(--font-mono); font-size:.68rem; color:var(--muted); margin-inline-start:auto}
+.vtitle{font-size:.885rem; line-height:1.45; color:var(--ink-2); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.vlink[aria-current="true"] .vtitle{color:var(--ink); font-weight:500}
+.tiles{display:flex; gap:2px; flex:none}
+.tiles i{width:6px; height:6px; border-radius:1.5px; display:block}
+.newdot{
+  font-family:var(--font-mono); font-size:.6rem; font-weight:600; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--accent-ink); background:var(--accent);
+  padding:1px 6px; border-radius:5px;
+}
+
+@media(max-width:900px){
+  .rail{
+    position:fixed; inset:0 auto 0 0; width:min(320px,86vw); z-index:60;
+    background:var(--ground); border-right:1px solid var(--line);
+    transform:translateX(-102%); transition:transform .22s ease; overflow-y:auto;
+    padding-top:18px; box-shadow:0 0 60px rgba(0,0,0,.3);
+  }
+  .rail[data-open="true"]{transform:none}
+  .scrim{position:fixed; inset:0; background:rgba(10,8,18,.5); z-index:50; border:0}
+}
+
+/* ---------- article ---------- */
+.main{padding:34px 30px 100px; min-width:0}
+@media(max-width:640px){.main{padding:22px 18px 80px}}
+.wrap{max-width:700px; margin:0 auto}
+
+.vhead{margin-bottom:26px}
+.vhead .tiles{margin-bottom:16px}
+.vhead .tiles i{width:14px;height:14px;border-radius:3px}
+.vkicker{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px}
+.vkicker .num{
+  font-family:var(--font-mono); font-size:.82rem; font-weight:600;
+  background:var(--surface-2); border-radius:7px; padding:3px 9px; letter-spacing:-.01em;
+}
+.vkicker time{font-family:var(--font-mono); font-size:.78rem; color:var(--muted)}
+h1{
+  font-family:var(--font-display); font-weight:800; font-size:clamp(1.85rem,5.2vw,2.6rem);
+  line-height:1.15; letter-spacing:-.025em; margin:0 0 12px; text-wrap:balance;
+}
+.lede{font-size:1.06rem; line-height:1.65; color:var(--ink-2); margin:0; text-wrap:pretty}
+
+.period{
+  display:flex; align-items:center; gap:11px; margin-top:22px;
+  background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:12px 15px;
+}
+.period svg{width:17px;height:17px;flex:none;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round}
+.period b{font-family:var(--font-mono); font-weight:600; font-size:.82rem; letter-spacing:-.01em}
+.period span{font-size:.78rem; color:var(--muted); display:block; letter-spacing:.02em}
+
+.hero{margin:26px 0 0; border-radius:16px; overflow:hidden; border:1px solid var(--line); background:var(--surface-2)}
+.hero img{display:block; width:100%; height:auto}
+
+.fallback{
+  display:flex; gap:11px; align-items:flex-start; margin:24px 0 0;
+  background:var(--accent-soft); border-radius:12px; padding:12px 15px;
+  font-size:.85rem; line-height:1.55; color:var(--ink-2);
+}
+.fallback svg{width:16px;height:16px;flex:none;margin-top:4px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round}
+
+.sec{margin-top:44px; scroll-margin-top:80px}
+.sec-head{display:flex; align-items:center; gap:11px; margin-bottom:4px}
+.tag{
+  font-family:var(--font-mono); font-size:.63rem; font-weight:600; letter-spacing:.09em;
+  text-transform:uppercase; padding:3px 8px; border-radius:6px;
+  color:var(--tc); background:color-mix(in srgb, var(--tc) 13%, transparent);
+}
+h2.sec-title{
+  font-family:var(--font-display); font-weight:700; font-size:1.42rem;
+  letter-spacing:-.018em; line-height:1.3; margin:0 0 18px; text-wrap:balance;
+}
+.sec > *:first-child{margin-top:0}
+.sec p{margin:0 0 16px; color:var(--ink-2); text-wrap:pretty}
+.sec ul{margin:0 0 18px; padding:0; list-style:none; display:flex; flex-direction:column; gap:11px}
+.sec ul li{position:relative; padding-inline-start:22px; color:var(--ink-2)}
+.sec ul li::before{
+  content:""; position:absolute; inset-inline-start:2px; top:.66em;
+  width:7px; height:7px; border-radius:2px; background:var(--tc); opacity:.85;
+}
+figure{margin:0 0 20px}
+figure img{display:block; width:100%; height:auto; border-radius:14px; border:1px solid var(--line)}
+figcaption{margin-top:9px; font-size:.8rem; color:var(--muted); line-height:1.55}
+.tablewrap{overflow-x:auto; margin:0 0 20px; border:1px solid var(--line); border-radius:13px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:.88rem; font-variant-numeric:tabular-nums}
+th,td{text-align:start; padding:11px 15px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{
+  font-family:var(--font-mono); font-size:.68rem; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); white-space:nowrap; background:var(--surface-2);
+}
+tr:last-child td{border-bottom:0}
+.notice{
+  margin:0 0 20px; padding:12px 15px; border-radius:11px;
+  background:var(--surface-2); border-inline-start:3px solid var(--tc);
+  font-size:.86rem; line-height:1.6; color:var(--ink-2);
+}
+.state{padding:80px 20px; text-align:center; color:var(--muted); font-size:.92rem}
+.foot{margin-top:64px; padding-top:22px; border-top:1px solid var(--line-soft); font-family:var(--font-mono); font-size:.7rem; color:var(--muted); letter-spacing:.04em}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <button class="iconbtn railbtn" id="railBtn" aria-label="Updates" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+  </button>
+  <a class="brand" href="./">
+    <span class="brand-tiles" aria-hidden="true">
+      <i style="background:#E4467C"></i><i style="background:#F0A020"></i><i style="background:#2E9E8F"></i><i style="background:#5B3FD9"></i>
+    </span>
+    <span>
+      <span class="brand-name">Color Sweeper</span>
+      <span class="brand-sub" id="brandSub">Updates</span>
+    </span>
+  </a>
+  <select class="ctl" id="langSel" aria-label="Language"></select>
+  <button class="iconbtn" id="themeBtn" aria-label="Theme">
+    <svg viewBox="0 0 24 24" id="themeIcon"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+  </button>
+</header>
+
+<div class="shell">
+  <nav class="rail" id="rail" aria-label="Update archive">
+    <h2 id="railTitle">All updates</h2>
+    <ol id="railList"></ol>
+  </nav>
+  <main class="main">
+    <div class="wrap" id="article"><p class="state">Loading…</p></div>
+  </main>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------------- UI strings (12 languages) ---------------- */
+var UI = {
+ "ko":{all:"모든 업데이트",latest:"NEW",period:"이벤트 기간",fallback:"이 업데이트는 아직 한국어로 준비되지 않아 영어로 표시합니다.",sub:"업데이트",err:"업데이트를 불러오지 못했습니다.",tags:{event:"이벤트",content:"신규",balance:"밸런스",fix:"수정",system:"시스템"}},
+ "en":{all:"All updates",latest:"NEW",period:"Event period",fallback:"This update isn’t available in your language yet, so English is shown.",sub:"Updates",err:"Couldn’t load updates.",tags:{event:"Event",content:"New",balance:"Balance",fix:"Fixes",system:"System"}},
+ "ja":{all:"すべての更新",latest:"NEW",period:"開催期間",fallback:"このアップデートは日本語版がまだ準備中のため、英語で表示しています。",sub:"アップデート",err:"アップデートを読み込めませんでした。",tags:{event:"イベント",content:"新規",balance:"バランス",fix:"修正",system:"システム"}},
+ "zh-Hans":{all:"全部更新",latest:"NEW",period:"活动时间",fallback:"本次更新的简体中文版本尚未准备好，暂以英文显示。",sub:"更新公告",err:"无法加载更新内容。",tags:{event:"活动",content:"新增",balance:"平衡",fix:"修复",system:"系统"}},
+ "zh-Hant":{all:"全部更新",latest:"NEW",period:"活動時間",fallback:"本次更新的繁體中文版本尚未準備好，暫以英文顯示。",sub:"更新公告",err:"無法載入更新內容。",tags:{event:"活動",content:"新增",balance:"平衡",fix:"修復",system:"系統"}},
+ "de":{all:"Alle Updates",latest:"NEU",period:"Eventzeitraum",fallback:"Dieses Update liegt noch nicht auf Deutsch vor – es wird auf Englisch angezeigt.",sub:"Updates",err:"Updates konnten nicht geladen werden.",tags:{event:"Event",content:"Neu",balance:"Balance",fix:"Fixes",system:"System"}},
+ "fr":{all:"Toutes les mises à jour",latest:"NOUV.",period:"Période de l’événement",fallback:"Cette mise à jour n’est pas encore disponible en français ; l’anglais est affiché.",sub:"Mises à jour",err:"Impossible de charger les mises à jour.",tags:{event:"Événement",content:"Nouveau",balance:"Équilibrage",fix:"Correctifs",system:"Système"}},
+ "es":{all:"Todas las actualizaciones",latest:"NUEVO",period:"Periodo del evento",fallback:"Esta actualización aún no está en español, así que se muestra en inglés.",sub:"Actualizaciones",err:"No se pudieron cargar las actualizaciones.",tags:{event:"Evento",content:"Nuevo",balance:"Balance",fix:"Correcciones",system:"Sistema"}},
+ "ru":{all:"Все обновления",latest:"НОВОЕ",period:"Период события",fallback:"Это обновление ещё не переведено на русский — показан английский текст.",sub:"Обновления",err:"Не удалось загрузить обновления.",tags:{event:"Событие",content:"Новое",balance:"Баланс",fix:"Исправления",system:"Система"}},
+ "th":{all:"อัปเดตทั้งหมด",latest:"ใหม่",period:"ระยะเวลากิจกรรม",fallback:"อัปเดตนี้ยังไม่มีภาษาไทย จึงแสดงเป็นภาษาอังกฤษ",sub:"อัปเดต",err:"โหลดอัปเดตไม่สำเร็จ",tags:{event:"กิจกรรม",content:"ใหม่",balance:"ปรับสมดุล",fix:"แก้ไข",system:"ระบบ"}},
+ "vi":{all:"Tất cả cập nhật",latest:"MỚI",period:"Thời gian sự kiện",fallback:"Bản cập nhật này chưa có tiếng Việt nên đang hiển thị bằng tiếng Anh.",sub:"Cập nhật",err:"Không tải được nội dung cập nhật.",tags:{event:"Sự kiện",content:"Mới",balance:"Cân bằng",fix:"Sửa lỗi",system:"Hệ thống"}},
+ "id":{all:"Semua pembaruan",latest:"BARU",period:"Periode event",fallback:"Pembaruan ini belum tersedia dalam Bahasa Indonesia, jadi ditampilkan dalam Bahasa Inggris.",sub:"Pembaruan",err:"Gagal memuat pembaruan.",tags:{event:"Event",content:"Baru",balance:"Balance",fix:"Perbaikan",system:"Sistem"}}
+};
+
+var FONT = {"ko":"Noto+Sans+KR","ja":"Noto+Sans+JP","zh-Hans":"Noto+Sans+SC","zh-Hant":"Noto+Sans+TC","th":"Noto+Sans+Thai"};
+var FAMILY = {"ko":"Noto Sans KR","ja":"Noto Sans JP","zh-Hans":"Noto Sans SC","zh-Hant":"Noto Sans TC","th":"Noto Sans Thai"};
+var HTMLLANG = {"zh-Hans":"zh-Hans","zh-Hant":"zh-Hant"};
+
+/* ---------------- data access ---------------- */
+var INLINE = window.__CSW_DATA__ || null;
+var BASE = "data/";
+var idx = null, cache = {}, state = {lang:null, vid:null};
+
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+async function getJSON(path, inlineKey){
+  if (INLINE && INLINE[inlineKey] !== undefined) return INLINE[inlineKey];
+  var r = await fetch(BASE + path, {cache:"no-cache"});
+  if (!r.ok) throw new Error(path + " " + r.status);
+  return r.json();
+}
+function imgSrc(p){
+  if (INLINE && INLINE.images && INLINE.images[p]) return INLINE.images[p];
+  return p;
+}
+
+/* pick a translation object's best value for the current language */
+function pick(obj, lang){
+  if (!obj) return {text:"", fell:false};
+  var fb = (idx && idx.fallbackLang) || "en";
+  if (obj[lang] != null && String(obj[lang]).trim() !== "") return {text:obj[lang], fell:false};
+  if (obj[fb]  != null && String(obj[fb]).trim()  !== "") return {text:obj[fb], fell:true};
+  for (var k in obj){ if (obj[k]) return {text:obj[k], fell:true}; }
+  return {text:"", fell:false};
+}
+function t(obj, lang){ return pick(obj, lang).text; }
+
+/* ---------------- language + theme ---------------- */
+function detectLang(codes){
+  var q = new URLSearchParams(location.search).get("lang");
+  var h = (location.hash.match(/lang=([\w-]+)/) || [])[1];
+  var stored = null; try { stored = localStorage.getItem("csw.lang"); } catch(e){}
+  var navs = (navigator.languages || [navigator.language || "en"]).slice();
+  var want = [q, h, stored].concat(navs).filter(Boolean);
+  for (var i = 0; i < want.length; i++){
+    var w = String(want[i]);
+    if (codes.indexOf(w) > -1) return w;
+    var lw = w.toLowerCase();
+    if (lw.indexOf("zh") === 0) return (/hant|tw|hk|mo/.test(lw)) ? "zh-Hant" : "zh-Hans";
+    var b = lw.split("-")[0];
+    for (var j = 0; j < codes.length; j++){ if (codes[j].toLowerCase().split("-")[0] === b) return codes[j]; }
+  }
+  return (idx && idx.defaultLang) || "en";
+}
+function applyFont(lang){
+  var f = FONT[lang];
+  if (f){
+    var id = "fnt-" + f;
+    if (!document.getElementById(id)){
+      var l = document.createElement("link");
+      l.id = id; l.rel = "stylesheet";
+      l.href = "https://fonts.googleapis.com/css2?family=" + f + ":wght@400;500;700&display=swap";
+      document.head.appendChild(l);
+    }
+  }
+  var fam = FAMILY[lang];
+  document.documentElement.style.setProperty("--font-body",
+    (fam ? '"' + fam + '",' : "") + '"Noto Sans",system-ui,sans-serif');
+  document.documentElement.lang = HTMLLANG[lang] || lang;
+}
+function initTheme(){
+  var s = null; try { s = localStorage.getItem("csw.theme"); } catch(e){}
+  if (s === "dark" || s === "light") document.documentElement.setAttribute("data-theme", s);
+  document.getElementById("themeBtn").addEventListener("click", function(){
+    var cur = document.documentElement.getAttribute("data-theme");
+    var isDark = cur ? cur === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("csw.theme", next); } catch(e){}
+  });
+}
+
+/* ---------------- routing ---------------- */
+function syncURL(){
+  var qs = "?v=" + encodeURIComponent(state.vid) + "&lang=" + encodeURIComponent(state.lang);
+  try { history.replaceState(null, "", qs); }
+  catch(e){ try { location.hash = "v=" + state.vid + "&lang=" + state.lang; } catch(e2){} }
+}
+function initialVid(){
+  var q = new URLSearchParams(location.search).get("v")
+       || (location.hash.match(/v=([\w.-]+)/) || [])[1];
+  if (q && idx.versions.some(function(v){ return v.id === q; })) return q;
+  return idx.versions[0].id;
+}
+
+/* ---------------- render ---------------- */
+function tagColor(tag){ return (idx.tagColors && idx.tagColors[tag]) || "var(--muted)"; }
+function tiles(tags){
+  var list = (tags && tags.length ? tags : ["system"]).slice(0, 4);
+  return '<span class="tiles" aria-hidden="true">' + list.map(function(tg){
+    return '<i style="background:' + esc(tagColor(tg)) + '"></i>';
+  }).join("") + "</span>";
+}
+function fmtDate(iso, lang){
+  try { return new Intl.DateTimeFormat(lang, {year:"numeric", month:"short", day:"numeric"}).format(new Date(iso + "T00:00:00")); }
+  catch(e){ return iso; }
+}
+
+function renderRail(){
+  var ui = UI[state.lang] || UI.en;
+  document.getElementById("railTitle").textContent = ui.all;
+  document.getElementById("brandSub").textContent = ui.sub;
+  document.getElementById("railList").innerHTML = idx.versions.map(function(v, i){
+    var cur = v.id === state.vid;
+    return '<li><button class="vlink" data-vid="' + esc(v.id) + '" aria-current="' + cur + '">' +
+      '<span class="vlink-top">' + tiles(v.tags) +
+        '<span class="vnum">v' + esc(v.version) + "</span>" +
+        (i === 0 ? '<span class="newdot">' + esc(ui.latest) + "</span>" : "") +
+        '<span class="vdate">' + esc(fmtDate(v.date, state.lang)) + "</span>" +
+      "</span>" +
+      '<span class="vtitle">' + esc(t(v.title, state.lang)) + "</span>" +
+    "</button></li>";
+  }).join("");
+  Array.prototype.forEach.call(document.querySelectorAll(".vlink"), function(b){
+    b.addEventListener("click", function(){ go(b.dataset.vid); closeRail(); });
+  });
+}
+
+function renderBlock(b, tag){
+  var lang = state.lang, out = "", fell = false;
+  function P(o){ var r = pick(o, lang); if (r.fell && r.text) fell = true; return esc(r.text); }
+
+  if (b.type === "text"){
+    out = "<p>" + P(b.value).replace(/\n+/g, "</p><p>") + "</p>";
+  } else if (b.type === "list"){
+    out = "<ul>" + (b.items || []).map(function(it){ return "<li>" + P(it.value) + "</li>"; }).join("") + "</ul>";
+  } else if (b.type === "notice"){
+    out = '<div class="notice">' + P(b.value) + "</div>";
+  } else if (b.type === "image"){
+    var src = (b.src && (b.src[lang] || b.src.common)) || "";
+    if (!src) return {html:"", fell:false};
+    var cap = b.caption ? P(b.caption) : "";
+    out = "<figure><img loading=\"lazy\" src=\"" + esc(imgSrc(src)) + "\" alt=\"" + cap + "\">" +
+          (cap ? "<figcaption>" + cap + "</figcaption>" : "") + "</figure>";
+  } else if (b.type === "table"){
+    var head = pick(b.head, lang); if (head.fell) fell = true;
+    var hcells = (head.text || []).map(function(h){ return "<th>" + esc(h) + "</th>"; }).join("");
+    var rows = (b.rows || []).map(function(r){
+      return "<tr>" + r.map(function(c){ return "<td>" + P(c) + "</td>"; }).join("") + "</tr>";
+    }).join("");
+    out = '<div class="tablewrap"><table><thead><tr>' + hcells + "</tr></thead><tbody>" + rows + "</tbody></table></div>";
+  }
+  return {html:out, fell:fell};
+}
+
+function renderArticle(meta, doc){
+  var lang = state.lang, ui = UI[lang] || UI.en, anyFell = false;
+  var titleR = pick(meta.title, lang), sumR = pick(meta.summary, lang);
+  if (titleR.fell || sumR.fell) anyFell = true;
+
+  var hero = doc.hero ? (doc.hero[lang] || doc.hero.common) : null;
+  var html = '<article><header class="vhead">' + tiles(meta.tags) +
+    '<div class="vkicker"><span class="num">v' + esc(meta.version) + "</span>" +
+    '<time datetime="' + esc(meta.date) + '">' + esc(fmtDate(meta.date, lang)) + "</time></div>" +
+    "<h1>" + esc(titleR.text) + "</h1>" +
+    '<p class="lede">' + esc(sumR.text) + "</p>";
+
+  var per = doc.period;
+  if (per && per.start){
+    html += '<div class="period"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg><div>' +
+      "<b>" + esc(per.start) + (per.end ? " → " + esc(per.end) : "") + (per.tz ? " " + esc(per.tz) : "") + "</b>" +
+      "<span>" + esc(ui.period) + "</span></div></div>";
+  }
+  if (hero) html += '<div class="hero"><img src="' + esc(imgSrc(hero)) + '" alt=""></div>';
+  html += "</header>";
+
+  var body = (doc.sections || []).map(function(s){
+    var tag = s.tag || "system";
+    var blocks = (s.blocks || []).map(function(b){
+      var r = renderBlock(b, tag); if (r.fell) anyFell = true; return r.html;
+    }).join("");
+    var st = pick(s.title, lang); if (st.fell) anyFell = true;
+    return '<section class="sec" style="--tc:' + esc(tagColor(tag)) + '">' +
+      '<div class="sec-head"><span class="tag">' + esc((ui.tags && ui.tags[tag]) || tag) + "</span></div>" +
+      '<h2 class="sec-title">' + esc(st.text) + "</h2>" + blocks + "</section>";
+  }).join("");
+
+  var notice = anyFell ? '<div class="fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg><div>' + esc(ui.fallback) + "</div></div>" : "";
+  document.getElementById("article").innerHTML = html + notice + body +
+    '<div class="foot">Color Sweeper · v' + esc(meta.version) + " · " + esc(meta.date) + "</div></article>";
+}
+
+/* ---------------- controller ---------------- */
+async function go(vid){
+  state.vid = vid;
+  renderRail();
+  var meta = idx.versions.filter(function(v){ return v.id === vid; })[0];
+  var art = document.getElementById("article");
+  art.setAttribute("aria-busy", "true");
+  try {
+    if (!cache[vid]) cache[vid] = await getJSON("v/" + vid + ".json", "v/" + vid);
+    renderArticle(meta, cache[vid]);
+  } catch(e){
+    art.innerHTML = '<p class="state">' + esc((UI[state.lang] || UI.en).err) + "</p>";
+  }
+  art.removeAttribute("aria-busy");
+  syncURL();
+  window.scrollTo({top:0, behavior:"instant"});
+}
+function setLang(code){
+  state.lang = code;
+  try { localStorage.setItem("csw.lang", code); } catch(e){}
+  applyFont(code);
+  document.getElementById("langSel").value = code;
+  go(state.vid);
+}
+function openRail(o){
+  var r = document.getElementById("rail");
+  r.dataset.open = o ? "true" : "false";
+  document.getElementById("railBtn").setAttribute("aria-expanded", o ? "true" : "false");
+  var sc = document.getElementById("scrim");
+  if (o && !sc){
+    sc = document.createElement("button");
+    sc.id = "scrim"; sc.className = "scrim"; sc.setAttribute("aria-label", "Close");
+    sc.addEventListener("click", closeRail);
+    document.body.appendChild(sc);
+  } else if (!o && sc){ sc.remove(); }
+}
+function closeRail(){ openRail(false); }
+
+async function boot(){
+  initTheme();
+  try { idx = await getJSON("index.json", "index"); }
+  catch(e){ document.getElementById("article").innerHTML = '<p class="state">Couldn’t load updates.</p>'; return; }
+
+  var codes = idx.langs.map(function(l){ return l.code; });
+  var sel = document.getElementById("langSel");
+  sel.innerHTML = idx.langs.map(function(l){
+    return '<option value="' + esc(l.code) + '">' + esc(l.label) + "</option>";
+  }).join("");
+  sel.addEventListener("change", function(){ setLang(sel.value); });
+
+  state.lang = detectLang(codes);
+  state.vid = initialVid();
+  applyFont(state.lang);
+  sel.value = state.lang;
+  document.getElementById("railBtn").addEventListener("click", function(){
+    openRail(document.getElementById("rail").dataset.open !== "true");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeRail(); });
+  go(state.vid);
+}
+boot();
+})();
+</script>
+</body>
+</html>

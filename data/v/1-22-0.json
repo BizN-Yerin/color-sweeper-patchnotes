@@ -1,0 +1,80 @@
+{
+  "version": "1.22.0",
+  "date": "2026-07-16",
+  "period": {
+    "start": "2026-07-16 04:00",
+    "end": "",
+    "tz": "UTC+9"
+  },
+  "hero": {},
+  "sections": [
+    {
+      "key": "duel",
+      "tag": "event",
+      "title": {
+        "ko": "1대1 대전 시즌 2",
+        "en": "1v1 Duel Season 2",
+        "ja": "1vs1バトル シーズン2",
+        "zh-Hans": "1v1 对战 第 2 赛季",
+        "zh-Hant": "1v1 對戰 第 2 賽季",
+        "de": "1-gegen-1-Duell Saison 2"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "key": "duel.intro",
+          "value": {
+            "ko": "시즌 2가 시작됩니다. 마스터 위 '그랜드마스터' 티어가 새로 열리고, 시즌 한정 프로필 배경 3종이 보상에 추가되었습니다.",
+            "en": "Season 2 begins. A new Grandmaster tier sits above Master, and three season-exclusive profile backgrounds join the reward track.",
+            "ja": "シーズン2が開幕。マスターの上に「グランドマスター」ティアが追加され、シーズン限定プロフィール背景3種が報酬に加わりました。",
+            "zh-Hans": "第 2 赛季开启。大师之上新增“宗师”段位，赛季限定头像背景 3 款加入奖励。",
+            "zh-Hant": "第 2 賽季開啟。大師之上新增「宗師」段位，賽季限定頭像背景 3 款加入獎勵。",
+            "de": "Saison 2 startet. Über Meister gibt es neu den Großmeister-Rang, dazu drei saisonexklusive Profilhintergründe."
+          }
+        }
+      ]
+    },
+    {
+      "key": "system",
+      "tag": "system",
+      "title": {
+        "ko": "시스템 개선",
+        "en": "System Improvements",
+        "ja": "システム改善",
+        "zh-Hans": "系统优化",
+        "zh-Hant": "系統優化",
+        "de": "Systemverbesserungen"
+      },
+      "blocks": [
+        {
+          "type": "list",
+          "key": "system.items",
+          "items": [
+            {
+              "key": "system.items.1",
+              "value": {
+                "ko": "1대1 대전 평균 매칭 시간이 약 40% 단축되었습니다.",
+                "en": "Average 1v1 matchmaking time is about 40% faster.",
+                "ja": "1vs1バトルの平均マッチング時間が約40%短縮されました。",
+                "zh-Hans": "1v1 对战平均匹配时间缩短约 40%。",
+                "zh-Hant": "1v1 對戰平均配對時間縮短約 40%。",
+                "de": "Die durchschnittliche 1-gegen-1-Wartezeit ist rund 40 % kürzer."
+              }
+            },
+            {
+              "key": "system.items.2",
+              "value": {
+                "ko": "설정에서 언어를 변경해도 진행 중인 스테이지가 초기화되지 않습니다.",
+                "en": "Changing the language in Settings no longer resets your current stage.",
+                "ja": "設定で言語を変更しても、進行中のステージがリセットされなくなりました。",
+                "zh-Hans": "在设置中切换语言不再重置当前关卡进度。",
+                "zh-Hant": "在設定中切換語言不再重置目前關卡進度。",
+                "de": "Ein Sprachwechsel in den Einstellungen setzt das laufende Level nicht mehr zurück."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

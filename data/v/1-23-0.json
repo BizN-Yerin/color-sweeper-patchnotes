@@ -1,0 +1,182 @@
+{
+  "version": "1.23.0",
+  "date": "2026-08-06",
+  "period": {
+    "start": "2026-08-06 04:00",
+    "end": "",
+    "tz": "UTC+9"
+  },
+  "hero": {},
+  "sections": [
+    {
+      "key": "lab",
+      "tag": "balance",
+      "title": {
+        "ko": "연구소 개편",
+        "en": "Lab Overhaul",
+        "ja": "ラボ改編",
+        "zh-Hans": "研究所改版",
+        "zh-Hant": "研究所改版",
+        "de": "Labor-Überarbeitung"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "key": "lab.intro",
+          "value": {
+            "ko": "연구소 업그레이드 비용이 전 구간 하향 조정되었습니다. 초반 구간은 평균 22%, 후반 구간은 평균 15% 저렴해집니다.",
+            "en": "Lab upgrade costs have been reduced across all tiers — about 22% cheaper early on and 15% cheaper in later tiers.",
+            "ja": "ラボのアップグレード費用が全区間で下方調整されました。序盤は平均22%、終盤は平均15%安くなります。",
+            "zh-Hans": "研究所升级消耗已全面下调，前期平均降低约 22%，后期平均降低约 15%。",
+            "zh-Hant": "研究所升級消耗已全面下調，前期平均降低約 22%，後期平均降低約 15%。",
+            "de": "Die Laborkosten wurden gesenkt — früh etwa 22 %, später rund 15 % günstiger."
+          }
+        },
+        {
+          "type": "table",
+          "key": "lab.tbl",
+          "head": {
+            "ko": [
+              "단계",
+              "기존",
+              "변경"
+            ],
+            "en": [
+              "Tier",
+              "Before",
+              "After"
+            ],
+            "ja": [
+              "段階",
+              "変更前",
+              "変更後"
+            ],
+            "zh-Hans": [
+              "阶段",
+              "调整前",
+              "调整后"
+            ],
+            "zh-Hant": [
+              "階段",
+              "調整前",
+              "調整後"
+            ],
+            "de": [
+              "Stufe",
+              "Vorher",
+              "Nachher"
+            ]
+          },
+          "rows": [
+            [
+              {
+                "ko": "Lv.1–10",
+                "en": "Lv.1–10",
+                "ja": "Lv.1–10",
+                "zh-Hans": "Lv.1–10",
+                "zh-Hant": "Lv.1–10",
+                "de": "Stufe 1–10"
+              },
+              {
+                "ko": "코인 12,000",
+                "en": "12,000 Coins",
+                "ja": "コイン12,000",
+                "zh-Hans": "金币 12,000",
+                "zh-Hant": "金幣 12,000",
+                "de": "12.000 Münzen"
+              },
+              {
+                "ko": "코인 9,400",
+                "en": "9,400 Coins",
+                "ja": "コイン9,400",
+                "zh-Hans": "金币 9,400",
+                "zh-Hant": "金幣 9,400",
+                "de": "9.400 Münzen"
+              }
+            ],
+            [
+              {
+                "ko": "Lv.11–30",
+                "en": "Lv.11–30",
+                "ja": "Lv.11–30",
+                "zh-Hans": "Lv.11–30",
+                "zh-Hant": "Lv.11–30",
+                "de": "Stufe 11–30"
+              },
+              {
+                "ko": "코인 48,000",
+                "en": "48,000 Coins",
+                "ja": "コイン48,000",
+                "zh-Hans": "金币 48,000",
+                "zh-Hant": "金幣 48,000",
+                "de": "48.000 Münzen"
+              },
+              {
+                "ko": "코인 40,800",
+                "en": "40,800 Coins",
+                "ja": "コイン40,800",
+                "zh-Hans": "金币 40,800",
+                "zh-Hant": "金幣 40,800",
+                "de": "40.800 Münzen"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "notice",
+          "key": "lab.notice",
+          "value": {
+            "ko": "이미 업그레이드를 완료한 유저에게는 차액이 우편으로 지급됩니다.",
+            "en": "Players who already upgraded will receive the difference by mail.",
+            "ja": "既にアップグレード済みのプレイヤーには差額をメールで支給します。",
+            "zh-Hans": "已完成升级的玩家将通过邮件收到差额返还。",
+            "zh-Hant": "已完成升級的玩家將透過信箱收到差額返還。",
+            "de": "Wer bereits aufgerüstet hat, erhält die Differenz per Post."
+          }
+        }
+      ]
+    },
+    {
+      "key": "stages",
+      "tag": "content",
+      "title": {
+        "ko": "신규 스테이지",
+        "en": "New Stages",
+        "ja": "新ステージ",
+        "zh-Hans": "全新关卡",
+        "zh-Hant": "全新關卡",
+        "de": "Neue Level"
+      },
+      "blocks": [
+        {
+          "type": "list",
+          "key": "stages.items",
+          "items": [
+            {
+              "key": "stages.items.1",
+              "value": {
+                "ko": "스테이지 2,341 ~ 2,400 (총 60종) 이 추가되었습니다.",
+                "en": "Stages 2,341–2,400 (60 in total) have been added.",
+                "ja": "ステージ2,341〜2,400（全60種）が追加されました。",
+                "zh-Hans": "新增关卡 2,341～2,400（共 60 关）。",
+                "zh-Hant": "新增關卡 2,341～2,400（共 60 關）。",
+                "de": "Level 2.341–2.400 (insgesamt 60) wurden hinzugefügt."
+              }
+            },
+            {
+              "key": "stages.items.2",
+              "value": {
+                "ko": "신규 장애물 '모래시계'가 2,360 스테이지부터 등장합니다.",
+                "en": "The new Hourglass obstacle appears from stage 2,360.",
+                "ja": "新障害物「砂時計」がステージ2,360から登場します。",
+                "zh-Hans": "全新障碍“沙漏”将从 2,360 关开始出现。",
+                "zh-Hant": "全新障礙「沙漏」將從 2,360 關開始出現。",
+                "de": "Das neue Hindernis „Sanduhr“ erscheint ab Level 2.360."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

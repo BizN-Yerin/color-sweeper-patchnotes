@@ -1,0 +1,176 @@
+{
+  "game": "Color Sweeper",
+  "defaultLang": "en",
+  "fallbackLang": "en",
+  "langs": [
+    {
+      "code": "ko",
+      "label": "한국어",
+      "font": "Noto+Sans+KR"
+    },
+    {
+      "code": "en",
+      "label": "English",
+      "font": "Noto+Sans"
+    },
+    {
+      "code": "ja",
+      "label": "日本語",
+      "font": "Noto+Sans+JP"
+    },
+    {
+      "code": "zh-Hans",
+      "label": "简体中文",
+      "font": "Noto+Sans+SC"
+    },
+    {
+      "code": "zh-Hant",
+      "label": "繁體中文",
+      "font": "Noto+Sans+TC"
+    },
+    {
+      "code": "de",
+      "label": "Deutsch",
+      "font": "Noto+Sans"
+    },
+    {
+      "code": "fr",
+      "label": "Français",
+      "font": "Noto+Sans"
+    },
+    {
+      "code": "es",
+      "label": "Español",
+      "font": "Noto+Sans"
+    },
+    {
+      "code": "ru",
+      "label": "Русский",
+      "font": "Noto+Sans"
+    },
+    {
+      "code": "th",
+      "label": "ไทย",
+      "font": "Noto+Sans+Thai"
+    },
+    {
+      "code": "vi",
+      "label": "Tiếng Việt",
+      "font": "Noto+Sans"
+    },
+    {
+      "code": "id",
+      "label": "Bahasa Indonesia",
+      "font": "Noto+Sans"
+    }
+  ],
+  "tagColors": {
+    "event": "#E4467C",
+    "content": "#F0A020",
+    "balance": "#2E9E8F",
+    "fix": "#7C7A93",
+    "system": "#5B3FD9"
+  },
+  "versions": [
+    {
+      "id": "1-24-0",
+      "version": "1.24.0",
+      "date": "2026-08-27",
+      "tags": [
+        "event",
+        "content",
+        "fix"
+      ],
+      "availableLangs": [
+        "ko",
+        "en",
+        "ja",
+        "zh-Hans",
+        "zh-Hant",
+        "de"
+      ],
+      "title": {
+        "ko": "해변 스티커 컬렉션",
+        "en": "Seashore Sticker Collection",
+        "ja": "海辺ステッカーコレクション",
+        "zh-Hans": "海滩贴纸收藏",
+        "zh-Hant": "海灘貼紙收藏",
+        "de": "Strand-Sticker-Kollektion"
+      },
+      "summary": {
+        "ko": "여름이 가기 전, '해변' 스티커를 모아봐요! 신규 스테이지 60종과 여름 한정 부스터가 함께 찾아옵니다.",
+        "en": "Collect Seashore stickers before summer ends! 60 new stages and a limited summer booster arrive together.",
+        "ja": "夏が終わる前に「海辺」ステッカーを集めよう！新ステージ60種と夏限定ブースターが登場します。",
+        "zh-Hans": "趁夏天还未结束，收集“海滩”贴纸吧！60个全新关卡与夏日限定助力道具同步登场。",
+        "zh-Hant": "抓住夏天的尾巴，一起收集“海灘”貼紙吧！60 個全新關卡與夏日限定助力道具同步登場。",
+        "de": "Sammle Strand-Sticker, bevor der Sommer endet! 60 neue Level und ein limitierter Sommer-Booster warten auf dich."
+      }
+    },
+    {
+      "id": "1-23-0",
+      "version": "1.23.0",
+      "date": "2026-08-06",
+      "tags": [
+        "content",
+        "balance"
+      ],
+      "availableLangs": [
+        "ko",
+        "en",
+        "ja",
+        "zh-Hans",
+        "zh-Hant",
+        "de"
+      ],
+      "title": {
+        "ko": "연구소 개편 & 신규 스테이지",
+        "en": "Lab Overhaul & New Stages",
+        "ja": "ラボ改編＆新ステージ",
+        "zh-Hans": "研究所改版 & 全新关卡",
+        "zh-Hant": "研究所改版 & 全新關卡",
+        "de": "Labor-Überarbeitung & neue Level"
+      },
+      "summary": {
+        "ko": "연구소 업그레이드 비용이 전 구간 조정되었고, 신규 스테이지 60종이 열립니다.",
+        "en": "Lab upgrade costs have been rebalanced across all tiers, and 60 new stages are now open.",
+        "ja": "ラボのアップグレード費用が全区間で調整され、新ステージ60種が開放されます。",
+        "zh-Hans": "研究所升级消耗已全面调整，60 个全新关卡现已开放。",
+        "zh-Hant": "研究所升級消耗已全面調整，60 個全新關卡現已開放。",
+        "de": "Die Laborkosten wurden über alle Stufen angepasst, und 60 neue Level sind jetzt verfügbar."
+      }
+    },
+    {
+      "id": "1-22-0",
+      "version": "1.22.0",
+      "date": "2026-07-16",
+      "tags": [
+        "event",
+        "system"
+      ],
+      "availableLangs": [
+        "ko",
+        "en",
+        "ja",
+        "zh-Hans",
+        "zh-Hant",
+        "de"
+      ],
+      "title": {
+        "ko": "1대1 대전 시즌 2",
+        "en": "1v1 Duel Season 2",
+        "ja": "1vs1バトル シーズン2",
+        "zh-Hans": "1v1 对战 第 2 赛季",
+        "zh-Hant": "1v1 對戰 第 2 賽季",
+        "de": "1-gegen-1-Duell Saison 2"
+      },
+      "summary": {
+        "ko": "새로운 랭크 티어와 시즌 보상이 추가되었습니다. 매칭 속도도 크게 개선했어요.",
+        "en": "New rank tiers and season rewards are here, with much faster matchmaking.",
+        "ja": "新しいランクティアとシーズン報酬が追加。マッチング速度も大幅に改善しました。",
+        "zh-Hans": "新增段位层级与赛季奖励，匹配速度也大幅提升。",
+        "zh-Hant": "新增段位層級與賽季獎勵，配對速度也大幅提升。",
+        "de": "Neue Rangstufen und Saisonbelohnungen sowie deutlich schnelleres Matchmaking."
+      }
+    }
+  ]
+}
