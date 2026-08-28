@@ -2,8 +2,8 @@
   "version": "1.24.0",
   "date": "2026-08-27",
   "period": {
-    "start": "Thu Aug 27 2026 04:00:00 GMT+0900 (한국 표준시)",
-    "end": "Thu Sep 10 2026 03:59:00 GMT+0900 (한국 표준시)",
+    "start": "2026-08-27 04:00",
+    "end": "2026-09-10 03:59",
     "tz": "UTC+9"
   },
   "hero": {
@@ -15,15 +15,15 @@
       "tag": "event",
       "title": {
         "ko": "해변 스티커 컬렉션",
-        "en": "Seashore Sticker Collection"
+        "en": "Beach Sticker Collection"
       },
       "blocks": [
         {
           "type": "text",
           "key": "evt.intro",
           "value": {
-            "ko": "시원한 파도와 반짝이는 여름의 추억이 새로운 스티커로 찾아왔어요! 퍼즐을 플레이하고 '해변' 스티커를 모아보세요.",
-            "en": "Summer memories are back as stickers!"
+            "ko": "- 시원한 파도와 반짝이는 여름의 추억이 새로운 스티커로 찾아왔어요! 퍼즐을 플레이하고 '해변' 스티커를 모아보세요.\n\n아이템|개수\n비치볼|1",
+            "en": "- Cool ocean waves and sparkling summer memories have arrived as brand-new stickers! Play puzzles and collect the “Beach” stickers.\n\nItem|Total\nBeachBall|1"
           }
         }
       ]
