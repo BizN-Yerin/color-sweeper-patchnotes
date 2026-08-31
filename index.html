@@ -16,6 +16,7 @@
   --accent:#5B3FD9; --accent-ink:#FFFFFF; --accent-soft:#EDE8FF;
   --shadow:0 1px 2px rgba(26,23,38,.05), 0 8px 24px -12px rgba(26,23,38,.18);
   --t-event:#D93A70; --t-content:#C07408; --t-balance:#1E7F72; --t-fix:#6B6584; --t-system:#5B3FD9;
+  --req-bg:#FFF1DC; --req-fg:#9A5600;
   --font-display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
   --font-body:"Noto Sans",system-ui,sans-serif;
   --font-mono:"IBM Plex Mono",ui-monospace,monospace;
@@ -28,6 +29,7 @@
     --accent:#A78BFF; --accent-ink:#171130; --accent-soft:#241C42;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
     --t-event:#FF7FAA; --t-content:#F5B44A; --t-balance:#54C9B6; --t-fix:#A29BC0; --t-system:#A78BFF;
+    --req-bg:#3B2A0F; --req-fg:#F5B95A;
   }
 }
 :root[data-theme="dark"]{
@@ -36,6 +38,7 @@
   --accent:#A78BFF; --accent-ink:#171130; --accent-soft:#241C42;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
   --t-event:#FF7FAA; --t-content:#F5B44A; --t-balance:#54C9B6; --t-fix:#A29BC0; --t-system:#A78BFF;
+  --req-bg:#3B2A0F; --req-fg:#F5B95A;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -134,6 +137,13 @@ a{color:inherit}
   background:var(--surface-2); border-radius:7px; padding:3px 9px; letter-spacing:-.01em;
 }
 .vkicker time{font-family:var(--font-mono); font-size:.78rem; color:var(--muted)}
+.utag{
+  margin-inline-start:auto; font-size:.72rem; font-weight:700; letter-spacing:-.005em;
+  padding:5px 12px; border-radius:999px; white-space:nowrap; line-height:1.4;
+}
+.utag.req{background:var(--req-bg); color:var(--req-fg); border:1px solid transparent}
+.utag.opt{background:transparent; color:var(--muted); border:1px solid var(--line)}
+@media(max-width:520px){ .utag{margin-inline-start:0; order:3} .vkicker{gap:8px} }
 h1{
   font-family:var(--font-display); font-weight:800; font-size:clamp(1.85rem,5.2vw,2.6rem);
   line-height:1.15; letter-spacing:-.025em; margin:0 0 12px; text-wrap:balance;
@@ -258,18 +268,18 @@ a,button,select,label{-webkit-tap-highlight-color:rgba(91,63,217,.14)}
 
 /* ---------------- UI strings (12 languages) ---------------- */
 var UI = {
- "ko":{all:"모든 업데이트",latest:"NEW",updated:"업데이트 일자",period:"이벤트 기간",fallback:"이 업데이트는 아직 한국어로 준비되지 않아 영어로 표시합니다.",sub:"업데이트",err:"업데이트를 불러오지 못했습니다.",tags:{event:"이벤트",content:"신규",balance:"밸런스",fix:"수정",system:"시스템"}},
- "en":{all:"All updates",latest:"NEW",updated:"Update date",period:"Event period",fallback:"This update isn’t available in your language yet, so English is shown.",sub:"Updates",err:"Couldn’t load updates.",tags:{event:"Event",content:"New",balance:"Balance",fix:"Fixes",system:"System"}},
- "ja":{all:"すべての更新",latest:"NEW",updated:"アップデート日",period:"開催期間",fallback:"このアップデートは日本語版がまだ準備中のため、英語で表示しています。",sub:"アップデート",err:"アップデートを読み込めませんでした。",tags:{event:"イベント",content:"新規",balance:"バランス",fix:"修正",system:"システム"}},
- "zh-Hans":{all:"全部更新",latest:"NEW",updated:"更新日期",period:"活动时间",fallback:"本次更新的简体中文版本尚未准备好，暂以英文显示。",sub:"更新公告",err:"无法加载更新内容。",tags:{event:"活动",content:"新增",balance:"平衡",fix:"修复",system:"系统"}},
- "zh-Hant":{all:"全部更新",latest:"NEW",updated:"更新日期",period:"活動時間",fallback:"本次更新的繁體中文版本尚未準備好，暫以英文顯示。",sub:"更新公告",err:"無法載入更新內容。",tags:{event:"活動",content:"新增",balance:"平衡",fix:"修復",system:"系統"}},
- "de":{all:"Alle Updates",latest:"NEU",updated:"Update-Datum",period:"Eventzeitraum",fallback:"Dieses Update liegt noch nicht auf Deutsch vor – es wird auf Englisch angezeigt.",sub:"Updates",err:"Updates konnten nicht geladen werden.",tags:{event:"Event",content:"Neu",balance:"Balance",fix:"Fixes",system:"System"}},
- "fr":{all:"Toutes les mises à jour",latest:"NOUV.",updated:"Date de mise à jour",period:"Période de l’événement",fallback:"Cette mise à jour n’est pas encore disponible en français ; l’anglais est affiché.",sub:"Mises à jour",err:"Impossible de charger les mises à jour.",tags:{event:"Événement",content:"Nouveau",balance:"Équilibrage",fix:"Correctifs",system:"Système"}},
- "es":{all:"Todas las actualizaciones",latest:"NUEVO",updated:"Fecha de actualización",period:"Periodo del evento",fallback:"Esta actualización aún no está en español, así que se muestra en inglés.",sub:"Actualizaciones",err:"No se pudieron cargar las actualizaciones.",tags:{event:"Evento",content:"Nuevo",balance:"Balance",fix:"Correcciones",system:"Sistema"}},
- "ru":{all:"Все обновления",latest:"НОВОЕ",updated:"Дата обновления",period:"Период события",fallback:"Это обновление ещё не переведено на русский — показан английский текст.",sub:"Обновления",err:"Не удалось загрузить обновления.",tags:{event:"Событие",content:"Новое",balance:"Баланс",fix:"Исправления",system:"Система"}},
- "th":{all:"อัปเดตทั้งหมด",latest:"ใหม่",updated:"วันที่อัปเดต",period:"ระยะเวลากิจกรรม",fallback:"อัปเดตนี้ยังไม่มีภาษาไทย จึงแสดงเป็นภาษาอังกฤษ",sub:"อัปเดต",err:"โหลดอัปเดตไม่สำเร็จ",tags:{event:"กิจกรรม",content:"ใหม่",balance:"ปรับสมดุล",fix:"แก้ไข",system:"ระบบ"}},
- "vi":{all:"Tất cả cập nhật",latest:"MỚI",updated:"Ngày cập nhật",period:"Thời gian sự kiện",fallback:"Bản cập nhật này chưa có tiếng Việt nên đang hiển thị bằng tiếng Anh.",sub:"Cập nhật",err:"Không tải được nội dung cập nhật.",tags:{event:"Sự kiện",content:"Mới",balance:"Cân bằng",fix:"Sửa lỗi",system:"Hệ thống"}},
- "id":{all:"Semua pembaruan",latest:"BARU",updated:"Tanggal pembaruan",period:"Periode event",fallback:"Pembaruan ini belum tersedia dalam Bahasa Indonesia, jadi ditampilkan dalam Bahasa Inggris.",sub:"Pembaruan",err:"Gagal memuat pembaruan.",tags:{event:"Event",content:"Baru",balance:"Balance",fix:"Perbaikan",system:"Sistem"}}
+ "ko":{all:"모든 업데이트",latest:"NEW",required:"필수 업데이트",optional:"선택 업데이트",updated:"업데이트 일자",period:"이벤트 기간",fallback:"이 업데이트는 아직 한국어로 준비되지 않아 영어로 표시합니다.",sub:"업데이트",err:"업데이트를 불러오지 못했습니다.",tags:{event:"이벤트",content:"신규",balance:"밸런스",fix:"수정",system:"시스템"}},
+ "en":{all:"All updates",latest:"NEW",required:"Required update",optional:"Optional update",updated:"Update date",period:"Event period",fallback:"This update isn’t available in your language yet, so English is shown.",sub:"Updates",err:"Couldn’t load updates.",tags:{event:"Event",content:"New",balance:"Balance",fix:"Fixes",system:"System"}},
+ "ja":{all:"すべての更新",latest:"NEW",required:"必須アップデート",optional:"任意アップデート",updated:"アップデート日",period:"開催期間",fallback:"このアップデートは日本語版がまだ準備中のため、英語で表示しています。",sub:"アップデート",err:"アップデートを読み込めませんでした。",tags:{event:"イベント",content:"新規",balance:"バランス",fix:"修正",system:"システム"}},
+ "zh-Hans":{all:"全部更新",latest:"NEW",required:"强制更新",optional:"可选更新",updated:"更新日期",period:"活动时间",fallback:"本次更新的简体中文版本尚未准备好，暂以英文显示。",sub:"更新公告",err:"无法加载更新内容。",tags:{event:"活动",content:"新增",balance:"平衡",fix:"修复",system:"系统"}},
+ "zh-Hant":{all:"全部更新",latest:"NEW",required:"強制更新",optional:"選擇性更新",updated:"更新日期",period:"活動時間",fallback:"本次更新的繁體中文版本尚未準備好，暫以英文顯示。",sub:"更新公告",err:"無法載入更新內容。",tags:{event:"活動",content:"新增",balance:"平衡",fix:"修復",system:"系統"}},
+ "de":{all:"Alle Updates",latest:"NEU",required:"Pflicht-Update",optional:"Optionales Update",updated:"Update-Datum",period:"Eventzeitraum",fallback:"Dieses Update liegt noch nicht auf Deutsch vor – es wird auf Englisch angezeigt.",sub:"Updates",err:"Updates konnten nicht geladen werden.",tags:{event:"Event",content:"Neu",balance:"Balance",fix:"Fixes",system:"System"}},
+ "fr":{all:"Toutes les mises à jour",latest:"NOUV.",required:"Mise à jour obligatoire",optional:"Mise à jour facultative",updated:"Date de mise à jour",period:"Période de l’événement",fallback:"Cette mise à jour n’est pas encore disponible en français ; l’anglais est affiché.",sub:"Mises à jour",err:"Impossible de charger les mises à jour.",tags:{event:"Événement",content:"Nouveau",balance:"Équilibrage",fix:"Correctifs",system:"Système"}},
+ "es":{all:"Todas las actualizaciones",latest:"NUEVO",required:"Actualización obligatoria",optional:"Actualización opcional",updated:"Fecha de actualización",period:"Periodo del evento",fallback:"Esta actualización aún no está en español, así que se muestra en inglés.",sub:"Actualizaciones",err:"No se pudieron cargar las actualizaciones.",tags:{event:"Evento",content:"Nuevo",balance:"Balance",fix:"Correcciones",system:"Sistema"}},
+ "ru":{all:"Все обновления",latest:"НОВОЕ",required:"Обязательное обновление",optional:"Необязательное обновление",updated:"Дата обновления",period:"Период события",fallback:"Это обновление ещё не переведено на русский — показан английский текст.",sub:"Обновления",err:"Не удалось загрузить обновления.",tags:{event:"Событие",content:"Новое",balance:"Баланс",fix:"Исправления",system:"Система"}},
+ "th":{all:"อัปเดตทั้งหมด",latest:"ใหม่",required:"อัปเดตบังคับ",optional:"อัปเดตทางเลือก",updated:"วันที่อัปเดต",period:"ระยะเวลากิจกรรม",fallback:"อัปเดตนี้ยังไม่มีภาษาไทย จึงแสดงเป็นภาษาอังกฤษ",sub:"อัปเดต",err:"โหลดอัปเดตไม่สำเร็จ",tags:{event:"กิจกรรม",content:"ใหม่",balance:"ปรับสมดุล",fix:"แก้ไข",system:"ระบบ"}},
+ "vi":{all:"Tất cả cập nhật",latest:"MỚI",required:"Cập nhật bắt buộc",optional:"Cập nhật tùy chọn",updated:"Ngày cập nhật",period:"Thời gian sự kiện",fallback:"Bản cập nhật này chưa có tiếng Việt nên đang hiển thị bằng tiếng Anh.",sub:"Cập nhật",err:"Không tải được nội dung cập nhật.",tags:{event:"Sự kiện",content:"Mới",balance:"Cân bằng",fix:"Sửa lỗi",system:"Hệ thống"}},
+ "id":{all:"Semua pembaruan",latest:"BARU",required:"Pembaruan wajib",optional:"Pembaruan opsional",updated:"Tanggal pembaruan",period:"Periode event",fallback:"Pembaruan ini belum tersedia dalam Bahasa Indonesia, jadi ditampilkan dalam Bahasa Inggris.",sub:"Pembaruan",err:"Gagal memuat pembaruan.",tags:{event:"Event",content:"Baru",balance:"Balance",fix:"Perbaikan",system:"Sistem"}}
 };
 
 var FONT = {"ko":"Noto+Sans+KR","ja":"Noto+Sans+JP","zh-Hans":"Noto+Sans+SC","zh-Hant":"Noto+Sans+TC","th":"Noto+Sans+Thai"};
@@ -440,7 +450,12 @@ function renderArticle(meta, doc){
   var hero = doc.hero ? (doc.hero[lang] || doc.hero.common) : null;
   var html = '<article><header class="vhead">' + tiles(meta.tags) +
     '<div class="vkicker"><span class="num">v' + esc(meta.version) + "</span>" +
-    '<time datetime="' + esc(meta.date) + '">' + esc(fmtDate(meta.date, lang)) + "</time></div>" +
+    '<time datetime="' + esc(meta.date) + '">' + esc(fmtDate(meta.date, lang)) + "</time>" +
+    (meta.updateType === "required"
+       ? '<span class="utag req">' + esc(ui.required) + "</span>"
+       : (meta.updateType === "optional"
+            ? '<span class="utag opt">' + esc(ui.optional) + "</span>" : "")) +
+    "</div>" +
     "<h1>" + esc(titleR.text) + "</h1>" +
     '<p class="lede">' + esc(sumR.text) + "</p>";
 
